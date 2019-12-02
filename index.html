@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    input{
+        width: 200px;
+        margin: 15px;
+
+    }
+    button{
+        width: 70px;
+        background: blue;
+        color: white;
+        margin: 15px;
+    }
+    div{
+        margin: 15px;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: red;
+        color: white;
+        width: 700px;
+    }
+    .closBtn{
+        color: yellow;
+        font-size: x-large;
+        margin: 10px;
+
+    }
+    p{
+        margin: 5px;
+    }
+    .closBtn:hover{
+        background: darkblue;
+        cursor: pointer;
+    }
+    .container{
+        margin: 0;
+        padding: 0;
+    }
+
+
+</style>
+
+<body>
+    <input type="text" id="input" placeholder="Write your work">
+    <button id="btn">Create Task </button>
+    <div class="container">
+            
+    </div>
+    
+
+
+
+
+    <script >
+        var input= document.querySelector("#input")
+        var btn = document.querySelector("#btn")
+        var container= document.querySelector(".container")
+        
+
+        
+        
+
+        btn.addEventListener("click",myFunction)
+        function myFunction(){
+            var content = document.createElement("div")
+            var closBtn = document.createElement("span")
+            var para = document.createElement("p")
+            content.classList.add("content")
+            content.appendChild(para)
+            content.appendChild(closBtn)
+            closBtn.textContent="x"
+            closBtn.classList.add("closBtn")
+           container.appendChild(content)
+           para.textContent= input.value
+           input.value= ""
+
+           closBtn.addEventListener("click",closFunction)
+
+          
+        
+        }
+        
+
+        
+
+        function closFunction(e){
+            e.target.closest(".content").remove()
+        }
+
+
+
+        
+
+    
+
+
+    </script>
+</body>
+</html>
