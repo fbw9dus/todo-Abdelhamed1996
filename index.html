@@ -10,10 +10,12 @@
     body{
         display: flex;
         flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
     }
     input{
         width: 200px;
         margin: 15px;
+        
 
     }
     button{
@@ -21,6 +23,7 @@
         background: blue;
         color: white;
         margin: 15px;
+        outline: none;
     }
     div{
         margin: 15px;
@@ -32,11 +35,16 @@
         background: red;
         color: white;
         width: 700px;
+        border-radius: 7px;
+
     }
     .closBtn{
         color: yellow;
-        font-size: x-large;
+        font-size: 30px;
         margin: 10px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
 
     }
     p{
@@ -45,6 +53,7 @@
     .closBtn:hover{
         background: darkblue;
         cursor: pointer;
+        border-radius: 50%;
     }
     .container{
         margin: 0;
@@ -55,7 +64,7 @@
 </style>
 
 <body>
-    <input type="text" id="input" placeholder="Write your work">
+    <input type="text" id="input" placeholder="Write your Task">
     <button id="btn">Create Task </button>
     <div class="container">
             
@@ -74,8 +83,8 @@
         
         
 
-        btn.addEventListener("click",myFunction)
-        function myFunction(){
+        btn.addEventListener("click",addItem)
+        function addItem(){
             if(input.value != ""){
             var content = document.createElement("div")
             var closBtn = document.createElement("span")
@@ -90,7 +99,7 @@
            para.textContent= input.value
            input.value= ""
 
-           closBtn.addEventListener("click",closFunction)
+           closBtn.addEventListener("click",removeItem)
 
             }
 
@@ -101,7 +110,7 @@
 
         
 
-        function closFunction(e){
+        function removeItem(e){
             e.target.closest(".content").remove()
         }
 
