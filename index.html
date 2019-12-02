@@ -76,9 +76,11 @@
 
         btn.addEventListener("click",myFunction)
         function myFunction(){
+            if(input.value != ""){
             var content = document.createElement("div")
             var closBtn = document.createElement("span")
             var para = document.createElement("p")
+
             content.classList.add("content")
             content.appendChild(para)
             content.appendChild(closBtn)
@@ -89,6 +91,8 @@
            input.value= ""
 
            closBtn.addEventListener("click",closFunction)
+
+            }
 
           
         
